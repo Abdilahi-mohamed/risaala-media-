@@ -1,0 +1,16 @@
+const app = require('./src/app');
+const dotenv = require('dotenv');
+const connectDB = require('./src/config/db');
+
+dotenv.config();
+
+const PORT = process.env.PORT || 5000;
+
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Backend server running on port ${PORT}`);
+  });
+}).catch((error) => {
+  console.error('Failed to start server:', error);
+  process.exit(1);
+});

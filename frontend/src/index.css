@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #dfe8f2;
+  --bg-elevated: #edf4fb;
+  --panel: #ffffff;
+  --panel-soft: #f8fafc;
+  --panel-strong: #e2e8f0;
+  --border: #dfe7f2;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-strong: #0f172a;
+  --sidebar: #dfeaf5;
+  --sidebar-strong: #edf4fb;
+  --accent: #1d74d2;
+  --accent-strong: #185fb5;
+  --accent-soft: #dbeafe;
+  --input-bg: #f8fafc;
+  --danger: #dc2626;
+}
+
+body[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #020817;
+  --bg-elevated: #0f172a;
+  --panel: #111827;
+  --panel-soft: #0b1220;
+  --panel-strong: #1f2937;
+  --border: #1f2937;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-strong: #f8fafc;
+  --sidebar: #0b1120;
+  --sidebar-strong: #111827;
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --accent-soft: rgba(96, 165, 250, 0.14);
+  --input-bg: #0f172a;
+  --danger: #f87171;
+}
+
+body[data-theme='black-blue'] {
+  color-scheme: dark;
+  --bg: #020611;
+  --bg-elevated: #091a2e;
+  --panel: #081827;
+  --panel-soft: #081522;
+  --panel-strong: #102942;
+  --border: #173353;
+  --text: #e2f0ff;
+  --text-muted: #8bb5d9;
+  --text-strong: #f4faff;
+  --sidebar: #040d1d;
+  --sidebar-strong: #0a1f38;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --accent-soft: rgba(56, 189, 248, 0.16);
+  --input-bg: #091b2d;
+  --danger: #f87171;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+.theme-shell {
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-shell[data-theme='light'] {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body[data-theme='dark'] .bg-white,
+body[data-theme='dark'] .bg-slate-50,
+body[data-theme='dark'] .bg-slate-100,
+body[data-theme='dark'] .bg-slate-200,
+body[data-theme='dark'] .bg-[#dfe8f2],
+body[data-theme='dark'] .bg-[#dfeaf5],
+body[data-theme='dark'] .bg-[#edf4fb],
+body[data-theme='dark'] .bg-[#edf2f8],
+body[data-theme='dark'] .bg-[#f8fafc],
+body[data-theme='dark'] .bg-slate-900,
+body[data-theme='dark'] .bg-slate-800,
+body[data-theme='dark'] .bg-slate-700 {
+  background-color: var(--panel) !important;
+}
+
+body[data-theme='dark'] .bg-slate-50,
+body[data-theme='dark'] .bg-slate-100,
+body[data-theme='dark'] .bg-slate-200,
+body[data-theme='dark'] .bg-slate-300,
+body[data-theme='dark'] .bg-red-50,
+body[data-theme='dark'] .bg-emerald-50,
+body[data-theme='dark'] .bg-sky-50,
+body[data-theme='dark'] .bg-blue-50,
+body[data-theme='dark'] .bg-slate-600,
+body[data-theme='dark'] .bg-slate-500 {
+  background-color: var(--panel-soft) !important;
+}
+
+body[data-theme='dark'] .bg-[#1d74d2],
+body[data-theme='dark'] .bg-[#185fb5],
+body[data-theme='dark'] .bg-[#0f766e],
+body[data-theme='dark'] .bg-[#7c3aed],
+body[data-theme='dark'] .bg-blue-600,
+body[data-theme='dark'] .bg-sky-600,
+body[data-theme='dark'] .bg-indigo-600,
+body[data-theme='dark'] .bg-emerald-600 {
+  background-color: var(--accent) !important;
+}
+
+body[data-theme='dark'] .border-slate-200,
+body[data-theme='dark'] .border-[#cdd9e8],
+body[data-theme='dark'] .border-[#d5e0ef],
+body[data-theme='dark'] .border-[#d9e7f6],
+body[data-theme='dark'] .border-slate-300,
+body[data-theme='dark'] .border-slate-700,
+body[data-theme='dark'] .border-slate-600 {
+  border-color: var(--border) !important;
+}
+
+body[data-theme='dark'] .text-slate-900,
+body[data-theme='dark'] .text-slate-800,
+body[data-theme='dark'] .text-slate-700,
+body[data-theme='dark'] .text-slate-600,
+body[data-theme='dark'] .text-slate-500,
+body[data-theme='dark'] .text-slate-400,
+body[data-theme='dark'] .text-slate-300,
+body[data-theme='dark'] .text-slate-200,
+body[data-theme='dark'] .text-slate-100,
+body[data-theme='dark'] .text-slate-50,
+body[data-theme='dark'] [class*='text-slate-'],
+body[data-theme='dark'] [class*='text-gray-'] {
+  color: var(--text) !important;
+}
+
+body[data-theme='dark'] .text-slate-500,
+body[data-theme='dark'] .text-slate-600,
+body[data-theme='dark'] .text-slate-400 {
+  color: var(--text-muted) !important;
+}
+
+body[data-theme='dark'] .text-red-600,
+body[data-theme='dark'] .text-red-700,
+body[data-theme='dark'] .text-emerald-700,
+body[data-theme='dark'] .text-sky-700,
+body[data-theme='dark'] .text-blue-700,
+body[data-theme='dark'] .text-indigo-700 {
+  color: var(--text) !important;
+}
+
+body[data-theme='dark'] input,
+body[data-theme='dark'] select,
+body[data-theme='dark'] textarea,
+body[data-theme='dark'] button,
+body[data-theme='dark'] a {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+body[data-theme='dark'] input,
+body[data-theme='dark'] select,
+body[data-theme='dark'] textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body[data-theme='dark'] .text-white {
+  color: #f8fafc !important;
+}
+
+body[data-theme='dark'] .rounded-3xl,
+body[data-theme='dark'] .rounded-2xl,
+body[data-theme='dark'] .rounded-xl {
+  box-shadow: none;
+}
+
+body[data-theme='black-blue'] .bg-white,
+body[data-theme='black-blue'] .bg-slate-50,
+body[data-theme='black-blue'] .bg-slate-100,
+body[data-theme='black-blue'] .bg-slate-200,
+body[data-theme='black-blue'] .bg-[#dfe8f2],
+body[data-theme='black-blue'] .bg-[#dfeaf5],
+body[data-theme='black-blue'] .bg-[#edf4fb],
+body[data-theme='black-blue'] .bg-[#edf2f8],
+body[data-theme='black-blue'] .bg-[#f8fafc],
+body[data-theme='black-blue'] .bg-slate-900,
+body[data-theme='black-blue'] .bg-slate-800,
+body[data-theme='black-blue'] .bg-slate-700 {
+  background-color: var(--panel) !important;
+}
+
+body[data-theme='black-blue'] .bg-slate-50,
+body[data-theme='black-blue'] .bg-slate-100,
+body[data-theme='black-blue'] .bg-slate-200,
+body[data-theme='black-blue'] .bg-slate-300,
+body[data-theme='black-blue'] .bg-red-50,
+body[data-theme='black-blue'] .bg-emerald-50,
+body[data-theme='black-blue'] .bg-sky-50,
+body[data-theme='black-blue'] .bg-blue-50,
+body[data-theme='black-blue'] .bg-slate-600,
+body[data-theme='black-blue'] .bg-slate-500 {
+  background-color: var(--panel-soft) !important;
+}
+
+body[data-theme='black-blue'] .bg-[#1d74d2],
+body[data-theme='black-blue'] .bg-[#185fb5],
+body[data-theme='black-blue'] .bg-[#0f766e],
+body[data-theme='black-blue'] .bg-[#7c3aed],
+body[data-theme='black-blue'] .bg-blue-600,
+body[data-theme='black-blue'] .bg-sky-600,
+body[data-theme='black-blue'] .bg-indigo-600,
+body[data-theme='black-blue'] .bg-emerald-600 {
+  background-color: var(--accent) !important;
+}
+
+body[data-theme='black-blue'] .border-slate-200,
+body[data-theme='black-blue'] .border-[#cdd9e8],
+body[data-theme='black-blue'] .border-[#d5e0ef],
+body[data-theme='black-blue'] .border-[#d9e7f6],
+body[data-theme='black-blue'] .border-slate-300,
+body[data-theme='black-blue'] .border-slate-700,
+body[data-theme='black-blue'] .border-slate-600 {
+  border-color: var(--border) !important;
+}
+
+body[data-theme='black-blue'] .text-slate-900,
+body[data-theme='black-blue'] .text-slate-800,
+body[data-theme='black-blue'] .text-slate-700,
+body[data-theme='black-blue'] .text-slate-600,
+body[data-theme='black-blue'] .text-slate-500,
+body[data-theme='black-blue'] .text-slate-400,
+body[data-theme='black-blue'] .text-slate-300,
+body[data-theme='black-blue'] .text-slate-200,
+body[data-theme='black-blue'] .text-slate-100,
+body[data-theme='black-blue'] .text-slate-50,
+body[data-theme='black-blue'] [class*='text-slate-'],
+body[data-theme='black-blue'] [class*='text-gray-'] {
+  color: var(--text) !important;
+}
+
+body[data-theme='black-blue'] .text-slate-500,
+body[data-theme='black-blue'] .text-slate-600,
+body[data-theme='black-blue'] .text-slate-400 {
+  color: var(--text-muted) !important;
+}
+
+body[data-theme='black-blue'] .text-red-600,
+body[data-theme='black-blue'] .text-red-700,
+body[data-theme='black-blue'] .text-emerald-700,
+body[data-theme='black-blue'] .text-sky-700,
+body[data-theme='black-blue'] .text-blue-700,
+body[data-theme='black-blue'] .text-indigo-700 {
+  color: var(--text) !important;
+}
+
+body[data-theme='black-blue'] input,
+body[data-theme='black-blue'] select,
+body[data-theme='black-blue'] textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body[data-theme='black-blue'] .text-white {
+  color: #e0f2fe !important;
+}
