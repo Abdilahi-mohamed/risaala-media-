@@ -10,8 +10,8 @@ const generateToken = (user) => {
 
 const register = async (req, res, next) => {
   try {
-    const { name, email, password, role, employeeId, username, createdBy } = req.body;
-    const normalizedEmail = String(email || '').toLowerCase();
+    const { name, email, password, username } = req.body;
+    const normalizedEmail = String(email || '').trim().toLowerCase();
     const existing = await User.findOne({ email: normalizedEmail });
     if (existing) {
       return res.status(409).json({ success: false, message: 'Email already exists' });
@@ -24,10 +24,9 @@ const register = async (req, res, next) => {
       name,
       email: normalizedEmail,
       password: hashed,
-      role,
-      employeeId: employeeId || undefined,
-      username: username || undefined,
-      createdBy: createdBy || null
+      role: 'EMPLOYEE',
+      username: username ? String(username).trim().toLowerCase() : undefined,
+      status: 'ACTIVE'
     });
     res.status(201).json({
       success: true,

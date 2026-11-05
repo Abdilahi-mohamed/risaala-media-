@@ -43,7 +43,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/uploads', uploadRoutes);
 
 // serve uploaded media files
-app.use('/uploads', express.static(path.join(__dirname, '..', '..', 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.use(errorHandler);
 
