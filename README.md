@@ -43,6 +43,10 @@ The frontend app will run on:
 - Frontend requests are sent to `http://localhost:5000/api`
 - Backend uses MongoDB at `mongodb://127.0.0.1:27017/risaala-media`
 - Authentication uses JWT tokens stored in `localStorage`
+- Starting the backend with `npm run dev` creates a development manager account if it does not already exist:
+  - Email: `manager@risaala.com`
+  - Password: `manager123`
+- Existing accounts are not modified, and the demo manager is not created in production.
 
 ### Notes
 - If you use a different MongoDB URL, update `backend/.env`.
